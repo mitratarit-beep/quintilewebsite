@@ -38,8 +38,8 @@ export function Constellation() {
           x2={n.x}
           y2={n.y}
           stroke="var(--color-navy)"
-          strokeOpacity={n.gold ? 0.28 : 0.12}
-          strokeWidth={0.6}
+          strokeOpacity={n.gold ? 0.42 : 0.2}
+          strokeWidth={0.7}
         />
       ))}
 
@@ -51,8 +51,8 @@ export function Constellation() {
           cy={cy}
           r={ring.r}
           stroke="var(--color-navy)"
-          strokeOpacity={0.06}
-          strokeWidth={0.6}
+          strokeOpacity={0.1}
+          strokeWidth={0.7}
           strokeDasharray="2 5"
         />
       ))}
@@ -70,11 +70,11 @@ export function Constellation() {
 
       {/* central diamond mark */}
       <g>
-        <rect x="176" y="176" width="48" height="48" rx="2" transform="rotate(45 200 200)" stroke="var(--color-navy)" strokeWidth="2.4" />
-        <rect x="188" y="188" width="24" height="24" rx="1.5" transform="rotate(45 200 200)" fill="var(--color-gold)" />
-        <circle cx="200" cy="200" r="30" fill="var(--color-gold)" opacity="0.14">
-          <animate attributeName="opacity" values="0.05;0.2;0.05" dur="4s" repeatCount="indefinite" />
+        <circle cx="200" cy="200" r="34" fill="var(--color-gold)" opacity="0.16">
+          <animate attributeName="opacity" values="0.08;0.22;0.08" dur="4s" repeatCount="indefinite" />
         </circle>
+        <rect x="171" y="171" width="58" height="58" rx="2" transform="rotate(45 200 200)" fill="var(--color-paper)" stroke="var(--color-navy)" strokeWidth="3" />
+        <rect x="185" y="185" width="30" height="30" rx="1.5" transform="rotate(45 200 200)" fill="var(--color-gold)" />
       </g>
     </svg>
   );

@@ -29,13 +29,13 @@ export function Nav() {
         style={{
           borderRadius: 82,
           padding: "10px 12px 10px 20px",
-          background: scrolled ? "rgba(251,250,246,0.78)" : "rgba(251,250,246,0.55)",
-          border: "1px solid var(--color-line)",
-          backdropFilter: "blur(14px) saturate(1.6)",
-          WebkitBackdropFilter: "blur(14px) saturate(1.6)",
+          background: scrolled ? "rgba(240,236,226,0.72)" : "rgba(240,236,226,0.5)",
+          border: "1px solid var(--color-line-strong)",
+          backdropFilter: "blur(16px) saturate(1.7) brightness(1.05)",
+          WebkitBackdropFilter: "blur(16px) saturate(1.7) brightness(1.05)",
           boxShadow: scrolled
-            ? "0 10px 30px -18px rgba(4,34,83,0.35), inset 0 0 10px rgba(4,34,83,0.05)"
-            : "inset 0 0 10px rgba(4,34,83,0.04)",
+            ? "inset 0 0 10px rgba(20,38,58,0.06)"
+            : "inset 0 0 10px rgba(20,38,58,0.04)",
         }}
       >
         <Logo />
@@ -90,11 +90,11 @@ export function Nav() {
           className="md:hidden fixed inset-x-4 top-[76px] z-40 p-4"
           style={{
             borderRadius: 20,
-            background: "rgba(251,250,246,0.97)",
+            background: "rgba(245,241,231,0.98)",
             border: "1px solid var(--color-line-strong)",
-            backdropFilter: "blur(16px)",
-            WebkitBackdropFilter: "blur(16px)",
-            boxShadow: "0 24px 50px -24px rgba(4,34,83,0.4)",
+            backdropFilter: "blur(18px)",
+            WebkitBackdropFilter: "blur(18px)",
+            boxShadow: "0 24px 50px -28px rgba(20,38,58,0.35)",
           }}
         >
           <div className="flex flex-col">

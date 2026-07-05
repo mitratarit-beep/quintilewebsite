@@ -2,7 +2,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Reveal } from "./Reveal";
 
-/* Editorial section header: monospace marker + serif heading + descriptor */
+/* Editorial section header: monospace marker + serif heading + descriptor,
+   two-column on desktop (heading left, descriptor right, baseline-aligned). */
 export function SectionHeader({
   eyebrow,
   heading,
@@ -16,16 +17,25 @@ export function SectionHeader({
   align?: "left" | "center";
   dark?: boolean;
 }) {
+  if (align === "center") {
+    return (
+      <div className="text-center max-w-2xl mx-auto">
+        <p className="eyebrow eyebrow-gold" style={dark ? { color: "var(--color-gold)" } : undefined}>{eyebrow}</p>
+        <h2 className="h1 mt-5" style={{ color: dark ? "#f4efe3" : undefined }}>{heading}</h2>
+        {descriptor && (
+          <p className="lede mt-5 mx-auto max-w-xl" style={{ color: dark ? "#bcc2c9" : undefined }}>{descriptor}</p>
+        )}
+      </div>
+    );
+  }
   return (
-    <div
-      className={align === "center" ? "text-center max-w-3xl mx-auto" : "grid md:grid-cols-[1.1fr_1fr] gap-6 md:gap-12 items-end"}
-    >
+    <div className="grid md:grid-cols-[1.05fr_0.95fr] gap-6 md:gap-16 md:items-end">
       <div>
-        <p className="eyebrow" style={dark ? { color: "var(--color-gold)" } : undefined}>{eyebrow}</p>
-        <h2 className="h1 mt-4" style={{ color: dark ? "#f6f3ea" : undefined }}>{heading}</h2>
+        <p className="eyebrow eyebrow-gold" style={dark ? { color: "var(--color-gold)" } : undefined}>{eyebrow}</p>
+        <h2 className="h1 mt-5" style={{ color: dark ? "#f4efe3" : undefined, maxWidth: "16ch" }}>{heading}</h2>
       </div>
       {descriptor && (
-        <p className="lede" style={{ color: dark ? "#c4c9d1" : undefined }}>
+        <p className="lede md:pb-2" style={{ color: dark ? "#bcc2c9" : undefined }}>
           {descriptor}
         </p>
       )}
@@ -45,15 +55,15 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden" style={{ paddingTop: 148, paddingBottom: 24 }}>
-      <div className="absolute inset-0 grid-lines opacity-70 pointer-events-none" aria-hidden />
+    <section className="relative overflow-hidden" style={{ paddingTop: 168, paddingBottom: 8 }}>
+      <div className="absolute inset-0 grid-lines pointer-events-none" aria-hidden />
       <div className="wrap relative">
         <Reveal>
-          <p className="eyebrow">{eyebrow}</p>
-          <h1 className="display mt-5" style={{ maxWidth: "16ch" }}>
+          <p className="eyebrow eyebrow-gold">{eyebrow}</p>
+          <h1 className="display mt-6" style={{ maxWidth: "17ch" }}>
             {headline}
           </h1>
-          <p className="lede mt-6 max-w-2xl">{subtext}</p>
+          <p className="lede mt-7 max-w-2xl">{subtext}</p>
           {children}
         </Reveal>
       </div>
@@ -78,12 +88,15 @@ export function CTABanner({
         <Reveal>
           <div
             className="dark-section on-dark relative overflow-hidden"
-            style={{ borderRadius: 18, padding: "clamp(40px,6vw,72px)" }}
+            style={{ borderRadius: 4, padding: "clamp(44px,6vw,80px)" }}
           >
-            <div className="relative grid gap-8 md:grid-cols-[1.5fr_auto] md:items-center">
+            {/* thin gold top rule */}
+            <div style={{ position: "absolute", top: 0, left: 0, width: 64, height: 2, background: "var(--color-gold)" }} aria-hidden />
+            <div className="grid gap-10 md:grid-cols-[1.5fr_auto] md:items-end">
               <div>
-                <h2 className="h1" style={{ color: "#f6f3ea", maxWidth: "18ch" }}>{heading}</h2>
-                <p className="lede mt-4" style={{ color: "#c4c9d1" }}>{subtext}</p>
+                <p className="eyebrow" style={{ color: "var(--color-gold)" }}>Start a Search</p>
+                <h2 className="h1 mt-5" style={{ color: "#f4efe3", maxWidth: "17ch" }}>{heading}</h2>
+                <p className="lede mt-5" style={{ color: "#bcc2c9", maxWidth: "44ch" }}>{subtext}</p>
               </div>
               <div className="flex flex-wrap gap-3">
                 <Link href={href} className="btn btn-gold">

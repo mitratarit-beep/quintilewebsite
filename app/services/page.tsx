@@ -65,10 +65,11 @@ export default function Services() {
                         <span className="hidden md:inline" style={{ color: "var(--color-flint)" }}>→</span>
                       )}
                     </div>
-                    <h3 className="mt-5 font-serif" style={{ fontSize: 19, color: "var(--color-ink)", letterSpacing: "-0.01em" }}>
+                    <h3 className="mt-5 font-serif" style={{ fontSize: 19, color: "var(--color-ink)", letterSpacing: "-0.01em", lineHeight: 1.2, minHeight: "2.4em" }}>
                       {step.title}
                     </h3>
-                    <p className="mt-3 text-[14px]" style={{ color: "var(--color-graphite)", lineHeight: 1.6 }}>
+                    <div className="mt-4 mb-4" style={{ width: 24, borderTop: "1px solid var(--color-line-strong)" }} />
+                    <p className="text-[14px]" style={{ color: "var(--color-graphite)", lineHeight: 1.6 }}>
                       {step.body}
                     </p>
                   </div>

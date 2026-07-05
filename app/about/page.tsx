@@ -127,17 +127,18 @@ export default function About() {
         <div className="wrap">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto">
-              <p className="eyebrow">What Makes Us Different</p>
-              <h2 className="h1 mt-4">Six reasons clients trust us.</h2>
+              <p className="eyebrow eyebrow-gold">What Makes Us Different</p>
+              <h2 className="h1 mt-5">Six reasons clients trust us.</h2>
             </div>
           </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-14">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-16">
             {about.differentiators.map((d, i) => (
               <Reveal key={d.title} delay={(i % 3) * 80}>
-                <div className="card card-hover h-full">
+                <div className="card card-hover h-full flex flex-col" style={{ padding: "30px 28px" }}>
                   <span className="num">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="h3 mt-4">{d.title}</h3>
-                  <p className="mt-3 text-[15px]" style={{ color: "var(--color-graphite)", lineHeight: 1.65 }}>
+                  <h3 className="h3 mt-4" style={{ minHeight: "2.4em", display: "flex", alignItems: "flex-start" }}>{d.title}</h3>
+                  <div className="mb-4" style={{ width: 24, borderTop: "1px solid var(--color-gold)" }} />
+                  <p className="text-[15px]" style={{ color: "var(--color-graphite)", lineHeight: 1.65 }}>
                     {d.body}
                   </p>
                 </div>

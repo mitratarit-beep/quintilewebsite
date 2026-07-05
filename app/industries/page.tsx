@@ -19,10 +19,11 @@ export default function Industries() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {industries.segments.map((seg, i) => (
               <Reveal key={seg.title} delay={(i % 3) * 70}>
-                <div className="card card-hover h-full flex flex-col">
+                <div className="card card-hover h-full flex flex-col" style={{ padding: "30px 28px" }}>
                   <span className="num">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="h3 mt-4" style={{ fontSize: 20 }}>{seg.title}</h3>
-                  <p className="mt-3 text-[14.5px]" style={{ color: "var(--color-graphite)", lineHeight: 1.62 }}>
+                  <h3 className="h3 mt-4" style={{ fontSize: 20, minHeight: "2.4em", display: "flex", alignItems: "flex-start" }}>{seg.title}</h3>
+                  <div className="mb-4" style={{ width: 24, borderTop: "1px solid var(--color-gold)" }} />
+                  <p className="text-[14.5px]" style={{ color: "var(--color-graphite)", lineHeight: 1.62 }}>
                     {seg.body}
                   </p>
                 </div>

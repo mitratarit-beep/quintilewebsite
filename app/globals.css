@@ -1,35 +1,37 @@
 @import "tailwindcss";
 
 /* ============================================================
-   QUINTILE ADVISORY — Design System
-   Editorial (Antimetal) × Monochrome-pill (xAI), recolored to
+   QUINTILE ADVISORY — Editorial Design System
+   Antimetal-register (warm paper, serif at 400, dashed hairlines,
+   flat surfaces, depth through layering not shadow) recolored to
    brand: Deep Navy · Gold · Cream. Light theme.
    ============================================================ */
 
 @theme {
-  /* Surfaces — warm light stack */
-  --color-paper: #fbfaf6;      /* page canvas */
-  --color-cream: #f4f1e8;      /* elevated surface / section bands */
-  --color-sand: #ece5d4;       /* warm wash / tints */
-  --color-bone: #fdfcf9;       /* lightest elevated card */
+  /* Surfaces — warm parchment stack (canvas recedes, cream sits above) */
+  --color-paper: #ece7da;      /* page canvas — warm parchment field */
+  --color-cream: #f5f1e7;      /* primary surface — section bands, cards */
+  --color-bone: #faf7ef;       /* elevated surface — cards above cream */
+  --color-sand: #e7dfcc;       /* warm wash / tints */
 
-  /* Ink — navy family (brand) */
-  --color-navy: #042c53;       /* primary ink, filled buttons */
+  /* Ink — navy family (brand), warm not harsh */
+  --color-navy: #052c52;       /* primary ink, filled buttons */
   --color-navy-deep: #04223f;  /* darker sections / footer */
-  --color-navy-night: #031a30; /* deepest */
-  --color-ink: #10263f;        /* body headings */
-  --color-graphite: #52657a;   /* secondary body text */
-  --color-slate: #3d4f63;      /* tertiary labels */
-  --color-flint: #8b98a6;      /* muted helper text */
+  --color-navy-night: #041a30; /* deepest */
+  --color-ink: #14263a;        /* headings */
+  --color-graphite: #55636f;   /* secondary body text — the workhorse mid-tone */
+  --color-slate: #3c4956;      /* tertiary labels */
+  --color-flint: #94958d;      /* muted helper text, dashed dividers */
 
-  /* Accent — gold (brand) */
-  --color-gold: #c9a84c;       /* accent */
-  --color-gold-deep: #a8862f;  /* accent hover / text on light */
-  --color-gold-soft: #e7d6a3;  /* soft wash */
+  /* Accent — gold (brand), rationed */
+  --color-gold: #c1a049;       /* accent */
+  --color-gold-deep: #9a7c2c;  /* accent text on light */
+  --color-gold-soft: #e4d3a0;  /* soft wash */
 
-  /* Lines */
-  --color-line: #04223f1a;     /* hairline (navy @ 10%) */
-  --color-line-strong: #04223f2e;
+  /* Lines — dashed hairline = signature separator */
+  --color-line: #14263a1a;     /* navy @ ~10% */
+  --color-line-soft: #14263a12;
+  --color-line-strong: #14263a2b;
 
   /* Fonts (wired via next/font variables in layout) */
   --font-serif: var(--font-fraunces), "Noto Serif", Georgia, serif;
@@ -37,10 +39,10 @@
   --font-mono: var(--font-mono), ui-monospace, "JetBrains Mono", monospace;
 
   /* Layout */
-  --page-max: 1180px;
+  --page-max: 1200px;
 
-  /* Radii */
-  --radius-card: 6px;
+  /* Radii — cards near-rectangular, buttons pill */
+  --radius-card: 3px;
   --radius-pill: 9999px;
 }
 
@@ -62,168 +64,171 @@ body {
 
 /* ---------- Type helpers ---------- */
 .font-serif { font-family: var(--font-serif); }
-.font-mono { font-family: var(--font-mono); }
+.font-mono { font-family: var(--font-mono); font-feature-settings: "tnum" on; }
 
 .serif {
   font-family: var(--font-serif);
   font-weight: 400;
   color: var(--color-ink);
-  letter-spacing: -0.02em;
-  line-height: 1.08;
+  letter-spacing: -0.021em;
+  line-height: 1.1;
 }
 
 /* Monospace eyebrow / section marker: "01 · THE PROBLEM" */
 .eyebrow {
   font-family: var(--font-mono);
+  font-feature-settings: "tnum" on;
   font-size: 11px;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--color-gold-deep);
+  letter-spacing: 0.14em;
+  color: var(--color-graphite);
 }
-
-.eyebrow-quiet { color: var(--color-graphite); }
+.eyebrow-gold { color: var(--color-gold-deep); }
+.eyebrow-quiet { color: var(--color-flint); }
 
 .lede {
-  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
   line-height: 1.55;
   color: var(--color-graphite);
   letter-spacing: -0.01em;
+  font-weight: 400;
 }
 
-/* Display sizes */
+/* Display sizes — serif at weight 400, negative tracking, never bold */
 .display {
   font-family: var(--font-serif);
   font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.02;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
   color: var(--color-ink);
-  font-size: clamp(2.6rem, 6.4vw, 5.1rem);
+  font-size: clamp(2.7rem, 6vw, 4.6rem);
 }
 .h1 {
   font-family: var(--font-serif);
   font-weight: 400;
-  letter-spacing: -0.025em;
-  line-height: 1.05;
+  letter-spacing: -0.028em;
+  line-height: 1.06;
   color: var(--color-ink);
-  font-size: clamp(2.2rem, 4.6vw, 3.5rem);
+  font-size: clamp(2.1rem, 4.2vw, 3.1rem);
 }
 .h2 {
   font-family: var(--font-serif);
   font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: -0.022em;
+  line-height: 1.12;
   color: var(--color-ink);
-  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-size: clamp(1.6rem, 2.8vw, 2.15rem);
 }
 .h3 {
   font-family: var(--font-serif);
   font-weight: 400;
-  letter-spacing: -0.015em;
-  line-height: 1.15;
+  letter-spacing: -0.014em;
+  line-height: 1.2;
   color: var(--color-ink);
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-size: clamp(1.2rem, 1.7vw, 1.4rem);
 }
 
 /* ---------- Layout ---------- */
-.wrap { max-width: var(--page-max); margin-inline: auto; padding-inline: 24px; }
-.wrap-wide { max-width: 1320px; margin-inline: auto; padding-inline: 24px; }
+.wrap { max-width: var(--page-max); margin-inline: auto; padding-inline: 28px; }
 
-.section { padding-block: clamp(64px, 9vw, 120px); }
-.section-tight { padding-block: clamp(48px, 6vw, 80px); }
+.section { padding-block: clamp(72px, 10vw, 120px); }
+.section-tight { padding-block: clamp(56px, 7vw, 92px); }
 
-/* ---------- Buttons ---------- */
+/* ---------- Buttons ----------
+   Signature pairing: filled navy pill + rectangular ghost.
+   One filled button per viewport. */
 .btn {
   display: inline-flex; align-items: center; gap: 10px;
   font-family: var(--font-sans);
   font-size: 14px; font-weight: 500; letter-spacing: -0.01em;
-  border-radius: var(--radius-pill);
-  padding: 13px 24px;
-  transition: background .25s cubic-bezier(.4,0,.2,1), color .25s, border-color .25s, transform .25s, box-shadow .25s;
+  transition: background .22s cubic-bezier(.4,0,.2,1), color .22s cubic-bezier(.4,0,.2,1), border-color .22s cubic-bezier(.4,0,.2,1);
   cursor: pointer;
   white-space: nowrap;
 }
 .btn-primary {
   background: var(--color-navy);
-  color: #f6f4ec;
+  color: #f2ede1;
   border: 1px solid var(--color-navy);
+  border-radius: var(--radius-pill);
+  padding: 13px 25px;
 }
-.btn-primary:hover { background: var(--color-navy-deep); transform: translateY(-1px); }
-.btn-primary .arw { transition: transform .25s; }
+.btn-primary:hover { background: var(--color-navy-deep); }
+.btn-primary .arw { transition: transform .22s cubic-bezier(.4,0,.2,1); }
 .btn-primary:hover .arw { transform: translateX(3px); }
 
+/* Ghost — rectangular, sharp corners contrast the pill */
 .btn-ghost {
   background: transparent;
-  color: var(--color-navy);
+  color: var(--color-ink);
   border: 1px solid var(--color-line-strong);
+  border-radius: 0;
+  padding: 13px 22px;
 }
-.btn-ghost:hover { border-color: var(--color-navy); background: #04223f08; }
+.btn-ghost:hover { border-color: var(--color-ink); }
 
 .btn-gold {
   background: var(--color-gold);
   color: var(--color-navy-deep);
   border: 1px solid var(--color-gold);
+  border-radius: var(--radius-pill);
+  padding: 13px 25px;
 }
-.btn-gold:hover { background: var(--color-gold-deep); color: #fff; transform: translateY(-1px); }
+.btn-gold:hover { background: var(--color-gold-deep); color: #fff; }
 
 /* On dark surfaces */
-.on-dark .btn-ghost { color: #f0ece2; border-color: #ffffff33; }
-.on-dark .btn-ghost:hover { border-color: #fff; background: #ffffff10; }
+.on-dark .btn-ghost { color: #ede8dc; border-color: #ffffff2e; }
+.on-dark .btn-ghost:hover { border-color: #fff; }
 
-/* ---------- Cards ---------- */
+/* ---------- Cards — flat, no shadow; depth via layering + hairline ---------- */
 .card {
   background: var(--color-bone);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-card);
   padding: 32px;
-  transition: border-color .3s, transform .3s, box-shadow .3s;
+  transition: border-color .3s cubic-bezier(.4,0,.2,1), background .3s cubic-bezier(.4,0,.2,1);
 }
-.card-hover:hover {
-  border-color: var(--color-line-strong);
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px -28px rgba(4,34,83,0.35);
-}
+.card-hover:hover { border-color: var(--color-line-strong); background: #fdfbf5; }
 
-/* Dashed hairline divider (Antimetal signature) */
+/* Dashed hairline dividers (signature) */
 .hairline { border: none; border-top: 1px dashed var(--color-line-strong); }
-.hairline-v { border: none; border-left: 1px dashed var(--color-line-strong); }
 
 /* Pill tag */
 .tag {
-  display: inline-flex; align-items: center; gap: 6px;
+  display: inline-flex; align-items: center; gap: 8px;
   font-family: var(--font-mono);
-  font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  font-feature-settings: "tnum" on;
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--color-slate);
-  background: var(--color-sand);
-  border: 1px solid var(--color-line);
+  background: transparent;
+  border: 1px solid var(--color-line-strong);
   border-radius: var(--radius-pill);
-  padding: 5px 12px;
+  padding: 6px 14px;
 }
 
-/* Level chips */
+/* Level chips — quiet, rectangular-ish */
 .chip {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 11px; letter-spacing: 0.03em;
+  font-size: 11px; letter-spacing: 0.02em;
   color: var(--color-slate);
   border: 1px solid var(--color-line-strong);
   border-radius: var(--radius-pill);
-  padding: 4px 11px;
-  background: var(--color-paper);
+  padding: 5px 12px;
+  background: transparent;
+  transition: border-color .2s, color .2s;
 }
 
-/* Dark section utility */
+/* Dark section — solid deep navy, restrained (no gradient wash) */
 .dark-section {
-  background:
-    radial-gradient(1200px 500px at 85% -10%, rgba(201,168,76,0.14), transparent 60%),
-    var(--color-navy-deep);
-  color: #eae6db;
+  background: var(--color-navy-deep);
+  color: #d8d3c6;
 }
-.dark-section .serif, .dark-section h1, .dark-section h2, .dark-section h3 { color: #f6f3ea; }
-.dark-section .lede, .dark-section p { color: #c4c9d1; }
+.dark-section .serif, .dark-section h1, .dark-section h2, .dark-section h3 { color: #f4efe3; }
+.dark-section .lede, .dark-section p { color: #bcc2c9; }
 
 /* Reveal on scroll */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
 .reveal.in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -232,34 +237,35 @@ body {
 }
 
 /* Link hover */
-.ulink { color: var(--color-navy); position: relative; transition: color .2s; }
+.ulink { color: var(--color-navy); transition: color .2s; }
 .ulink:hover { color: var(--color-gold-deep); }
 
-/* Numbered marker */
+/* Monospace numbering marker */
 .num {
   font-family: var(--font-mono);
-  font-size: 12px; letter-spacing: 0.1em;
+  font-feature-settings: "tnum" on;
+  font-size: 12px; letter-spacing: 0.08em;
   color: var(--color-gold-deep);
 }
 
 /* Drop cap for editorial paragraph */
 .dropcap::first-letter {
   font-family: var(--font-serif);
-  font-size: 3.4em;
-  line-height: 0.72;
+  font-weight: 400;
+  font-size: 3.5em;
+  line-height: 0.76;
   float: left;
   padding-right: 12px;
-  padding-top: 6px;
+  padding-top: 5px;
   color: var(--color-navy);
-  font-weight: 400;
 }
 
 /* Grid backdrop for hero */
 .grid-lines {
   background-image:
-    linear-gradient(var(--color-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
-  background-size: 46px 46px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 78%);
-          mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 78%);
+    linear-gradient(var(--color-line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-line-soft) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 78% 68% at 50% 42%, #000 28%, transparent 76%);
+          mask-image: radial-gradient(ellipse 78% 68% at 50% 42%, #000 28%, transparent 76%);
 }
