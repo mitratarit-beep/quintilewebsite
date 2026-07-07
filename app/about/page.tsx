@@ -61,18 +61,17 @@ export default function About() {
                   className="mt-6 relative flex items-center justify-center"
                   style={{
                     aspectRatio: "4/5",
-                    borderRadius: 8,
-                    background:
-                      "radial-gradient(120% 120% at 30% 15%, #0a3a67, var(--color-navy-deep))",
+                    borderRadius: 4,
+                    background: "var(--color-navy-deep)",
                     border: "1px solid var(--color-line-strong)",
                     overflow: "hidden",
                   }}
                 >
-                  <div className="absolute inset-0 grid-lines opacity-25" aria-hidden />
+                  <div className="absolute inset-0 grid-lines opacity-20" aria-hidden />
                   <div className="relative text-center px-6">
-                    <LogoMark size={54} stroke="#f4f1e8" center="var(--color-gold)" />
-                    <p className="font-serif mt-5" style={{ color: "#f4f1e8", fontSize: 30, letterSpacing: "-0.02em" }}>SM</p>
-                    <p className="font-mono mt-2" style={{ color: "var(--color-gold)", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase" }}>
+                    <LogoMark size={52} stroke="#efe9db" center="#cf8b5c" />
+                    <p className="font-serif mt-5" style={{ color: "#efe9db", fontSize: 30, letterSpacing: "-0.02em" }}>SM</p>
+                    <p className="font-mono mt-3" style={{ color: "#cf8b5c", fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase" }}>
                       Founder &amp; MD
                     </p>
                   </div>

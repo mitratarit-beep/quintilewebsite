@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { Fraunces, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -12,10 +12,10 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
-const inter = Inter({
+const hanken = Hanken_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: "--font-inter",
+  variable: "--font-hanken",
   display: "swap",
 });
 
@@ -70,7 +70,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${mono.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${hanken.variable} ${mono.variable}`}>
       <body>
         <Nav />
         <main>{children}</main>

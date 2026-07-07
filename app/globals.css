@@ -8,34 +8,36 @@
    ============================================================ */
 
 @theme {
-  /* Surfaces — warm parchment stack (canvas recedes, cream sits above) */
-  --color-paper: #ece7da;      /* page canvas — warm parchment field */
-  --color-cream: #f5f1e7;      /* primary surface — section bands, cards */
-  --color-bone: #faf7ef;       /* elevated surface — cards above cream */
-  --color-sand: #e7dfcc;       /* warm wash / tints */
+  /* Surfaces — warm ivory stack (canvas recedes, cream/bone sit above) */
+  --color-paper: #ece6d7;      /* page canvas — warm ivory field */
+  --color-cream: #f4efe3;      /* primary surface — section bands, cards */
+  --color-bone: #faf6ea;       /* elevated surface — cards above cream */
+  --color-sand: #e3dbc7;       /* warm wash / tints */
 
-  /* Ink — navy family (brand), warm not harsh */
-  --color-navy: #052c52;       /* primary ink, filled buttons */
-  --color-navy-deep: #04223f;  /* darker sections / footer */
-  --color-navy-night: #041a30; /* deepest */
-  --color-ink: #14263a;        /* headings */
-  --color-graphite: #55636f;   /* secondary body text — the workhorse mid-tone */
-  --color-slate: #3c4956;      /* tertiary labels */
-  --color-flint: #94958d;      /* muted helper text, dashed dividers */
+  /* Ink — deep cool near-black (quietly echoes the navy heritage, never saturated).
+     Token names kept as *navy* so components re-skin without edits. */
+  --color-navy: #212c33;       /* primary ink, filled buttons, mark */
+  --color-navy-deep: #19242b;  /* dark sections / footer */
+  --color-navy-night: #131c22; /* deepest */
+  --color-ink: #212c33;        /* headings */
+  --color-graphite: #5c6169;   /* secondary body text — tinted, never pure gray */
+  --color-slate: #454b52;      /* tertiary labels */
+  --color-flint: #8d8a80;      /* muted helper text, dashed dividers */
 
-  /* Accent — gold (brand), rationed */
-  --color-gold: #c1a049;       /* accent */
-  --color-gold-deep: #9a7c2c;  /* accent text on light */
-  --color-gold-soft: #e4d3a0;  /* soft wash */
+  /* Accent — terracotta / clay (replaces gold), rationed to single touches.
+     Token names kept as *gold* so components re-skin without edits. */
+  --color-gold: #a8572e;       /* accent — warm clay */
+  --color-gold-deep: #8a4523;  /* accent text on light / hover */
+  --color-gold-soft: #d8b596;  /* soft wash */
 
-  /* Lines — dashed hairline = signature separator */
-  --color-line: #14263a1a;     /* navy @ ~10% */
-  --color-line-soft: #14263a12;
-  --color-line-strong: #14263a2b;
+  /* Lines — dashed hairline = signature separator (ink @ low opacity, tinted) */
+  --color-line: #212c331c;     /* ink @ ~11% */
+  --color-line-soft: #212c3312;
+  --color-line-strong: #212c332e;
 
   /* Fonts (wired via next/font variables in layout) */
   --font-serif: var(--font-fraunces), "Noto Serif", Georgia, serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, "JetBrains Mono", monospace;
 
   /* Layout */
@@ -219,13 +221,13 @@ body {
   transition: border-color .2s, color .2s;
 }
 
-/* Dark section — solid deep navy, restrained (no gradient wash) */
+/* Dark section — solid deep ink, restrained (no gradient wash) */
 .dark-section {
   background: var(--color-navy-deep);
-  color: #d8d3c6;
+  color: #d7cfbe;
 }
-.dark-section .serif, .dark-section h1, .dark-section h2, .dark-section h3 { color: #f4efe3; }
-.dark-section .lede, .dark-section p { color: #bcc2c9; }
+.dark-section .serif, .dark-section h1, .dark-section h2, .dark-section h3 { color: #f4efe2; }
+.dark-section .lede, .dark-section p { color: #c3bcac; }
 
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
