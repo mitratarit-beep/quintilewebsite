@@ -15,21 +15,21 @@ export function Footer() {
                 Quintile Advisory
               </span>
             </div>
-            <p className="font-serif mt-5" style={{ color: "#d8b596", fontSize: 22, letterSpacing: "-0.02em", lineHeight: 1.15 }}>
+            <p className="font-serif mt-5" style={{ color: "#e79b82", fontSize: 22, letterSpacing: "-0.02em", lineHeight: 1.15 }}>
               We find the exceptional.
             </p>
-            <p className="mt-5 text-[13px] font-mono" style={{ color: "#a49c8b", letterSpacing: "0.04em" }}>
+            <p className="mt-5 text-[13px] font-mono" style={{ color: "#9aa1b0", letterSpacing: "0.04em" }}>
               {site.disciplines.join("  ·  ")}
             </p>
           </div>
 
           {/* Explore */}
           <div>
-            <p className="eyebrow" style={{ color: "#cf8b5c" }}>Explore</p>
+            <p className="eyebrow" style={{ color: "#f2795c" }}>Explore</p>
             <ul className="mt-5 space-y-3">
               {nav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-[15px] transition-colors" style={{ color: "#c3bcac" }}>
+                  <Link href={item.href} className="text-[15px] transition-colors" style={{ color: "#c3cbd9" }}>
                     {item.label}
                   </Link>
                 </li>
@@ -39,8 +39,8 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="eyebrow" style={{ color: "#cf8b5c" }}>Contact</p>
-            <ul className="mt-5 space-y-3 text-[15px]" style={{ color: "#c3bcac" }}>
+            <p className="eyebrow" style={{ color: "#f2795c" }}>Contact</p>
+            <ul className="mt-5 space-y-3 text-[15px]" style={{ color: "#c3cbd9" }}>
               <li>
                 <a href={`mailto:${site.email}`} className="break-all hover:text-white transition-colors">
                   {site.email}
@@ -62,7 +62,7 @@ export function Footer() {
         </div>
 
         <div className="hairline mt-14" style={{ borderColor: "#ffffff1f" }} />
-        <div className="mt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-[13px]" style={{ color: "#948d7d" }}>
+        <div className="mt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-[13px]" style={{ color: "#8b93a3" }}>
           <p>© {new Date().getFullYear()} Quintile Advisory LLC. All rights reserved.</p>
           <p className="font-mono" style={{ letterSpacing: "0.06em" }}>Chicago, Illinois — Recruiting nationally across the US</p>
         </div>

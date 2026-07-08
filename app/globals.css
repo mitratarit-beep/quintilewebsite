@@ -8,32 +8,32 @@
    ============================================================ */
 
 @theme {
-  /* Surfaces — warm ivory stack (canvas recedes, cream/bone sit above) */
-  --color-paper: #ece6d7;      /* page canvas — warm ivory field */
-  --color-cream: #f4efe3;      /* primary surface — section bands, cards */
-  --color-bone: #faf6ea;       /* elevated surface — cards above cream */
-  --color-sand: #e3dbc7;       /* warm wash / tints */
+  /* Surfaces — warm cream stack (canvas recedes, cream/bone sit above) */
+  --color-paper: #f0ebde;      /* page canvas — warm cream field */
+  --color-cream: #f6f1e6;      /* primary surface — section bands, cards */
+  --color-bone: #fbf7ee;       /* elevated surface — cards above cream */
+  --color-sand: #e8e0ce;       /* warm wash / tints */
 
-  /* Ink — deep cool near-black (quietly echoes the navy heritage, never saturated).
+  /* Deep royal blue — the expressive lead (headlines, buttons, mark, links).
      Token names kept as *navy* so components re-skin without edits. */
-  --color-navy: #212c33;       /* primary ink, filled buttons, mark */
-  --color-navy-deep: #19242b;  /* dark sections / footer */
-  --color-navy-night: #131c22; /* deepest */
-  --color-ink: #212c33;        /* headings */
-  --color-graphite: #5c6169;   /* secondary body text — tinted, never pure gray */
-  --color-slate: #454b52;      /* tertiary labels */
-  --color-flint: #8d8a80;      /* muted helper text, dashed dividers */
+  --color-navy: #1e3f86;       /* deep royal blue — lead */
+  --color-navy-deep: #16305f;  /* dark sections / footer bg, hover */
+  --color-navy-night: #101f3d; /* deepest */
+  --color-ink: #20242e;        /* body / default text — cool near-black, tinted */
+  --color-graphite: #4c515c;   /* secondary body text — never pure gray */
+  --color-slate: #3a3f4a;      /* tertiary labels */
+  --color-flint: #8a8880;      /* muted helper text, dashed dividers */
 
-  /* Accent — terracotta / clay (replaces gold), rationed to single touches.
+  /* Accent — coral (replaces gold), rationed to single touches.
      Token names kept as *gold* so components re-skin without edits. */
-  --color-gold: #a8572e;       /* accent — warm clay */
-  --color-gold-deep: #8a4523;  /* accent text on light / hover */
-  --color-gold-soft: #d8b596;  /* soft wash */
+  --color-gold: #e8613f;       /* accent — coral spark */
+  --color-gold-deep: #c1462a;  /* accent text on light / hover */
+  --color-gold-soft: #f2bfab;  /* soft wash */
 
   /* Lines — dashed hairline = signature separator (ink @ low opacity, tinted) */
-  --color-line: #212c331c;     /* ink @ ~11% */
-  --color-line-soft: #212c3312;
-  --color-line-strong: #212c332e;
+  --color-line: #20242e1c;     /* ink @ ~11% */
+  --color-line-soft: #20242e12;
+  --color-line-strong: #20242e2e;
 
   /* Fonts (wired via next/font variables in layout) */
   --font-serif: var(--font-fraunces), "Noto Serif", Georgia, serif;
@@ -71,7 +71,7 @@ body {
 .serif {
   font-family: var(--font-serif);
   font-weight: 400;
-  color: var(--color-ink);
+  color: var(--color-navy);
   letter-spacing: -0.021em;
   line-height: 1.1;
 }
@@ -103,7 +103,7 @@ body {
   font-weight: 400;
   letter-spacing: -0.035em;
   line-height: 1.04;
-  color: var(--color-ink);
+  color: var(--color-navy);
   font-size: clamp(2.7rem, 6vw, 4.6rem);
 }
 .h1 {
@@ -111,7 +111,7 @@ body {
   font-weight: 400;
   letter-spacing: -0.028em;
   line-height: 1.06;
-  color: var(--color-ink);
+  color: var(--color-navy);
   font-size: clamp(2.1rem, 4.2vw, 3.1rem);
 }
 .h2 {
@@ -119,7 +119,7 @@ body {
   font-weight: 400;
   letter-spacing: -0.022em;
   line-height: 1.12;
-  color: var(--color-ink);
+  color: var(--color-navy);
   font-size: clamp(1.6rem, 2.8vw, 2.15rem);
 }
 .h3 {
@@ -127,7 +127,7 @@ body {
   font-weight: 400;
   letter-spacing: -0.014em;
   line-height: 1.2;
-  color: var(--color-ink);
+  color: var(--color-navy);
   font-size: clamp(1.2rem, 1.7vw, 1.4rem);
 }
 
@@ -221,13 +221,13 @@ body {
   transition: border-color .2s, color .2s;
 }
 
-/* Dark section — solid deep ink, restrained (no gradient wash) */
+/* Dark section — solid deep royal blue, restrained (no gradient wash) */
 .dark-section {
   background: var(--color-navy-deep);
-  color: #d7cfbe;
+  color: #cdd4e0;
 }
-.dark-section .serif, .dark-section h1, .dark-section h2, .dark-section h3 { color: #f4efe2; }
-.dark-section .lede, .dark-section p { color: #c3bcac; }
+.dark-section .serif, .dark-section h1, .dark-section h2, .dark-section h3 { color: #f3f1ea; }
+.dark-section .lede, .dark-section p { color: #c3cbd9; }
 
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }

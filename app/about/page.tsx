@@ -69,9 +69,9 @@ export default function About() {
                 >
                   <div className="absolute inset-0 grid-lines opacity-20" aria-hidden />
                   <div className="relative text-center px-6">
-                    <LogoMark size={52} stroke="#efe9db" center="#cf8b5c" />
+                    <LogoMark size={52} stroke="#efe9db" center="#f2795c" />
                     <p className="font-serif mt-5" style={{ color: "#efe9db", fontSize: 30, letterSpacing: "-0.02em" }}>SM</p>
-                    <p className="font-mono mt-3" style={{ color: "#cf8b5c", fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase" }}>
+                    <p className="font-mono mt-3" style={{ color: "#f2795c", fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase" }}>
                       Founder &amp; MD
                     </p>
                   </div>

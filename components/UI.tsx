@@ -20,7 +20,7 @@ export function SectionHeader({
   if (align === "center") {
     return (
       <div className="text-center max-w-2xl mx-auto">
-        <p className="eyebrow eyebrow-gold" style={dark ? { color: "#cf8b5c" } : undefined}>{eyebrow}</p>
+        <p className="eyebrow eyebrow-gold" style={dark ? { color: "#f2795c" } : undefined}>{eyebrow}</p>
         <h2 className="h1 mt-5" style={{ color: dark ? "#f4efe3" : undefined }}>{heading}</h2>
         {descriptor && (
           <p className="lede mt-5 mx-auto max-w-xl" style={{ color: dark ? "#c3bcac" : undefined }}>{descriptor}</p>
@@ -31,7 +31,7 @@ export function SectionHeader({
   return (
     <div className="grid md:grid-cols-[1.05fr_0.95fr] gap-6 md:gap-16 md:items-end">
       <div>
-        <p className="eyebrow eyebrow-gold" style={dark ? { color: "#cf8b5c" } : undefined}>{eyebrow}</p>
+        <p className="eyebrow eyebrow-gold" style={dark ? { color: "#f2795c" } : undefined}>{eyebrow}</p>
         <h2 className="h1 mt-5" style={{ color: dark ? "#f4efe3" : undefined, maxWidth: "16ch" }}>{heading}</h2>
       </div>
       {descriptor && (
@@ -91,10 +91,10 @@ export function CTABanner({
             style={{ borderRadius: 4, padding: "clamp(44px,6vw,80px)" }}
           >
             {/* thin clay top rule */}
-            <div style={{ position: "absolute", top: 0, left: 0, width: 64, height: 2, background: "#c67a48" }} aria-hidden />
+            <div style={{ position: "absolute", top: 0, left: 0, width: 64, height: 2, background: "#e8613f" }} aria-hidden />
             <div className="grid gap-10 md:grid-cols-[1.5fr_auto] md:items-end">
               <div>
-                <p className="eyebrow" style={{ color: "#cf8b5c" }}>Start a Search</p>
+                <p className="eyebrow" style={{ color: "#f2795c" }}>Start a Search</p>
                 <h2 className="h1 mt-5" style={{ color: "#f4efe3", maxWidth: "17ch" }}>{heading}</h2>
                 <p className="lede mt-5" style={{ color: "#c3bcac", maxWidth: "44ch" }}>{subtext}</p>
               </div>
