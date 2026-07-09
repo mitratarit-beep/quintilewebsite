@@ -78,6 +78,7 @@ export const about = {
   founder: {
     name: "Sanghamitra Mitra, MBA, PHR",
     title: "Founder & Managing Director — Quintile Advisory LLC",
+    linkedin: "https://www.linkedin.com/in/sanghamitra-mitra",
     bio: [
       "Sanghamitra is a recruitment executive with nearly two decades of experience placing senior talent across Supply Chain, Operations, Manufacturing, Engineering, Technology, and AI functions. Before founding Quintile Advisory, she led talent and recruitment mandates at some of the most recognized firms in consulting and enterprise technology — including Kearney, SAP, Oracle, and HCL Technologies — where she partnered with global business leaders, partners, and C-suite stakeholders to build out specialist practices and critical hires.",
       "Her work spans the full spectrum of senior recruiting — from confidential executive searches and global practice builds to high-stakes technical hires — and she is known for combining deep functional understanding with a personal, advisory approach. She is equally comfortable assessing a Kinaxis Functional Lead, briefing a Chief Supply Chain Officer, or partnering with a private equity sponsor on a portfolio talent plan.",
@@ -89,7 +90,7 @@ export const about = {
   testimonial: {
     quote:
       "Sanghamitra delivered where two larger firms had failed. She understood our supply chain technology landscape immediately, came back within weeks with a shortlist of three candidates — all of whom we would have hired — and we closed our preferred candidate inside a month. She is the rare recruiter who actually understands what we do. She is now our first call for any senior hire.",
-    attribution: "VP, Global Supply Chain Planning — Fortune 500 CPG Company",
+    attribution: "Partner — a Boutique Supply Chain Consulting firm",
   },
   differentiators: [
     {
@@ -143,7 +144,7 @@ export const services = {
     },
     {
       title: "Capacity Augmentation — Extended Recruitment Team",
-      body: "For clients with ongoing or high-volume hiring needs, we provide embedded specialist recruitment capacity. We can act as an extension of your in-house talent team for a defined period, deliverable, or set hours per week — with the flexibility to scale up or down without long-term commitment.",
+      body: "An embedded, high-touch recruitment service designed to offer a near-touchless hiring experience for a nominal fee. We manage the entire lifecycle — from aggressive sourcing and technical screening to ongoing stakeholder alignment and offer management. Your hiring managers only step in for the interview and final feedback, allowing you to scale capacity with zero administrative friction.",
     },
   ],
   process: [
@@ -209,9 +210,24 @@ export const functions = {
     "Specialist recruitment across the full spectrum — from Analyst through C-Suite, and Consultant through Partner.",
   areas: [
     {
-      title: "Supply Chain Planning & Demand",
+      title: "Consulting & Advisory",
+      specialties: ["Strategy", "Operations", "Supply Chain", "Digital", "Technology", "AI Practices"],
+      levels: ["Consultant", "Senior Consultant", "Manager", "Senior Manager", "Principal", "Managing Director", "Partner", "Practice Leader", "Go-to-Market Leader", "Client Partner"],
+    },
+    {
+      title: "Executive Leadership",
+      specialties: ["Confidential C-suite", "VP & Senior Leadership", "Direct founder engagement"],
+      levels: ["VP", "SVP", "C-Suite", "Board"],
+    },
+    {
+      title: "Supply Chain Planning",
       specialties: ["Demand Planning", "Supply Planning", "S&OP / IBP", "Inventory Strategy", "Integrated Planning", "Logistics & Distribution Planning"],
       levels: ["Analyst", "Manager", "Director", "VP", "Chief Supply Chain Officer"],
+    },
+    {
+      title: "Supply Chain Technology & Digital Transformation",
+      specialties: ["Kinaxis", "o9", "SAP IBP & PP/DS", "Anaplan", "Blue Yonder", "Manhattan", "Coupa", "ERP & S/4HANA Transformation", "Solution Architecture", "SC Digital Innovation"],
+      levels: ["Analyst", "Functional Lead", "Manager", "Director", "VP", "CIO (SC Focus)", "Chief Digital Officer"],
     },
     {
       title: "Procurement & Sourcing",
@@ -234,31 +250,16 @@ export const functions = {
       levels: ["Analyst", "Manager", "Director", "VP", "Chief Logistics Officer"],
     },
     {
-      title: "Supply Chain Technology & Digital",
-      specialties: ["Kinaxis", "o9", "SAP IBP & PP/DS", "Anaplan", "Blue Yonder", "Manhattan", "Coupa", "ERP & S/4HANA Transformation", "Solution Architecture", "SC Digital Innovation"],
-      levels: ["Analyst", "Functional Lead", "Manager", "Director", "VP", "CIO (SC Focus)", "Chief Digital Officer"],
-    },
-    {
       title: "AI, Data & Analytics",
       specialties: ["Data Science", "Machine Learning Engineering", "AI Product Management", "Agentic AI", "Generative AI Applications", "Data Architecture", "Snowflake & Databricks", "BI & Analytics"],
       levels: ["Analyst", "Engineer", "Manager", "Director", "VP", "Chief Data Officer", "Chief AI Officer", "Chief Analytics Officer"],
-    },
-    {
-      title: "Consulting & Advisory",
-      specialties: ["Strategy", "Operations", "Supply Chain", "Digital", "Technology", "AI Practices"],
-      levels: ["Consultant", "Senior Consultant", "Manager", "Senior Manager", "Principal", "Managing Director", "Partner", "Practice Leader", "Go-to-Market Leader", "Client Partner"],
-    },
-    {
-      title: "Executive Leadership",
-      specialties: ["Confidential C-suite", "VP & Senior Leadership", "All functions above", "Direct founder engagement"],
-      levels: ["VP", "SVP", "C-Suite", "Board"],
     },
   ],
 };
 
 /* ---------------- CONTACT ---------------- */
 export const contact = {
-  headline: "Every search is managed personally.",
+  headline: "Rigorous, high-touch, personalized end-to-end execution on every mandate.",
   subtext:
     "Whether you're looking to fill a role or simply want to talk through a hiring challenge, we welcome the conversation. No commitment required.",
   lookingForOptions: [

@@ -1,9 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { contact } from "@/lib/content";
 
 type Status = "idle" | "submitting" | "success" | "error";
+
+const MAX_FILE_BYTES = 8 * 1024 * 1024; // 8MB
+const ACCEPTED_EXT = [".pdf", ".doc", ".docx"];
 
 const field =
   "w-full bg-[var(--color-bone)] border border-[var(--color-line-strong)] rounded-[6px] px-4 py-3 text-[15px] text-[var(--color-ink)] placeholder:text-[var(--color-flint)] outline-none transition-colors focus:border-[var(--color-navy)] focus:ring-1 focus:ring-[var(--color-navy)]";
@@ -12,6 +15,31 @@ const label = "block text-[13px] font-medium mb-2 text-[var(--color-slate)]";
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string>("");
+  const [fileName, setFileName] = useState<string>("");
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  function onFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) {
+      setFileName("");
+      return;
+    }
+    const ext = file.name.slice(file.name.lastIndexOf(".")).toLowerCase();
+    if (!ACCEPTED_EXT.includes(ext)) {
+      setError("Please upload a PDF or Word document.");
+      e.target.value = "";
+      setFileName("");
+      return;
+    }
+    if (file.size > MAX_FILE_BYTES) {
+      setError("File is too large — please keep it under 8MB.");
+      e.target.value = "";
+      setFileName("");
+      return;
+    }
+    setError("");
+    setFileName(file.name);
+  }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -19,18 +47,18 @@ export function ContactForm() {
     setError("");
 
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const formData = new FormData(form);
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: formData,
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || "Something went wrong.");
       setStatus("success");
       form.reset();
+      setFileName("");
     } catch (err: any) {
       setStatus("error");
       setError(err.message || "Something went wrong. Please email us directly.");
@@ -94,6 +122,36 @@ export function ContactForm() {
       <div className="mt-5">
         <label className={label} htmlFor="message">Message — tell us about your need *</label>
         <textarea id="message" name="message" required rows={5} className={field} style={{ resize: "vertical" }} placeholder="A few lines about the role, timing, or challenge you're facing." />
+      </div>
+
+      <div className="mt-5">
+        <label className={label} htmlFor="resume">Share your résumé (optional)</label>
+        <div
+          className="flex items-center justify-between gap-3 cursor-pointer"
+          style={{
+            border: "1px dashed var(--color-line-strong)",
+            borderRadius: 6,
+            padding: "14px 16px",
+            background: "var(--color-bone)",
+          }}
+          onClick={() => fileInputRef.current?.click()}
+        >
+          <span className="text-[14px]" style={{ color: fileName ? "var(--color-ink)" : "var(--color-flint)" }}>
+            {fileName || "Upload PDF or Word — up to 8MB"}
+          </span>
+          <span className="btn btn-ghost" style={{ padding: "8px 14px", fontSize: 13 }}>
+            {fileName ? "Change" : "Choose file"}
+          </span>
+        </div>
+        <input
+          ref={fileInputRef}
+          id="resume"
+          name="resume"
+          type="file"
+          accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          className="hidden"
+          onChange={onFileChange}
+        />
       </div>
 
       {status === "error" && (

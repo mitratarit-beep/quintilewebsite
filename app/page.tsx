@@ -127,7 +127,7 @@ export default function Home() {
 
       {/* ---------------- CTA ---------------- */}
       <CTABanner
-        heading="Every search is managed personally."
+        heading="Rigorous, high-touch, personalized end-to-end execution on every mandate."
         subtext="Let's talk about what you're looking for. No commitment required."
         cta="Get in Touch"
       />

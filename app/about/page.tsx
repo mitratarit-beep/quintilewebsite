@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { about } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 import { PageHero, CTABanner } from "@/components/UI";
-import { LogoMark } from "@/components/Logo";
 
 export const metadata: Metadata = {
   title: "About Quintile Advisory — Specialist Supply Chain, Technology & AI Recruitment",
@@ -23,7 +22,7 @@ export default function About() {
               <div>
                 <p className="eyebrow">Our Story</p>
                 <div className="mt-8 flex flex-col gap-4">
-                  {["Depth over volume", "Personally managed", "National reach"].map((t, i) => (
+                  {["Depth over volume", "Personally managed", "National reach", "Personalized experience"].map((t, i) => (
                     <div key={t} className="flex items-center gap-3">
                       <span className="num">0{i + 1}</span>
                       <span className="font-serif text-[18px]" style={{ color: "var(--color-ink)" }}>{t}</span>
@@ -56,30 +55,20 @@ export default function About() {
             <Reveal>
               <div className="md:sticky md:top-28">
                 <p className="eyebrow">Founder</p>
-                {/* Monogram portrait placeholder */}
-                <div
-                  className="mt-6 relative flex items-center justify-center"
-                  style={{
-                    aspectRatio: "4/5",
-                    borderRadius: 4,
-                    background: "var(--color-navy-deep)",
-                    border: "1px solid var(--color-line-strong)",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div className="absolute inset-0 grid-lines opacity-20" aria-hidden />
-                  <div className="relative text-center px-6">
-                    <LogoMark size={52} stroke="#efe9db" center="#f2795c" />
-                    <p className="font-serif mt-5" style={{ color: "#efe9db", fontSize: 30, letterSpacing: "-0.02em" }}>SM</p>
-                    <p className="font-mono mt-3" style={{ color: "#f2795c", fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase" }}>
-                      Founder &amp; MD
-                    </p>
-                  </div>
-                </div>
-                <h2 className="h3 mt-6">{about.founder.name}</h2>
-                <p className="mt-1 text-[14px]" style={{ color: "var(--color-graphite)" }}>{about.founder.title}</p>
+                <h2 className="h2 mt-5">{about.founder.name}</h2>
+                <p className="mt-2 text-[15px]" style={{ color: "var(--color-graphite)" }}>{about.founder.title}</p>
 
-                <div className="mt-6">
+                <a
+                  href={about.founder.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 btn btn-ghost"
+                  style={{ padding: "10px 18px" }}
+                >
+                  View LinkedIn Profile <span className="arw">↗</span>
+                </a>
+
+                <div className="mt-8 pt-6" style={{ borderTop: "1px dashed var(--color-line-strong)" }}>
                   <p className="eyebrow eyebrow-quiet">Previously at</p>
                   <div className="flex flex-wrap gap-2 mt-3">
                     {about.founder.firms.map((f) => (

@@ -4,6 +4,12 @@ export const runtime = "nodejs";
 
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL || "quintileadvisory@quintileadvisory.com";
 const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || "Quintile Advisory <onboarding@resend.dev>";
+const MAX_FILE_BYTES = 8 * 1024 * 1024; // 8MB
+const ACCEPTED_TYPES = new Set([
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+]);
 
 function isEmail(v: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
@@ -14,24 +20,26 @@ function esc(v: string) {
 }
 
 export async function POST(req: Request) {
-  let body: Record<string, string>;
+  let form: FormData;
   try {
-    body = await req.json();
+    form = await req.formData();
   } catch {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
+  const get = (k: string) => String(form.get(k) || "").trim();
+
   // Honeypot — silently accept bots without doing anything.
-  if (body.company_website) {
+  if (get("company_website")) {
     return NextResponse.json({ ok: true });
   }
 
-  const name = (body.name || "").trim();
-  const email = (body.email || "").trim();
-  const message = (body.message || "").trim();
-  const companyName = (body.companyName || "").trim();
-  const phone = (body.phone || "").trim();
-  const lookingFor = (body.lookingFor || "").trim();
+  const name = get("name");
+  const email = get("email");
+  const message = get("message");
+  const companyName = get("companyName");
+  const phone = get("phone");
+  const lookingFor = get("lookingFor");
 
   if (!name || !email || !message) {
     return NextResponse.json({ error: "Please complete the required fields." }, { status: 400 });
@@ -40,8 +48,22 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
   }
 
+  const resumeFile = form.get("resume");
+  let resumeAttachment: { filename: string; content: string } | null = null;
+  if (resumeFile instanceof File && resumeFile.size > 0) {
+    if (resumeFile.size > MAX_FILE_BYTES) {
+      return NextResponse.json({ error: "Résumé file is too large — please keep it under 8MB." }, { status: 400 });
+    }
+    if (resumeFile.type && !ACCEPTED_TYPES.has(resumeFile.type)) {
+      return NextResponse.json({ error: "Please upload a PDF or Word document." }, { status: 400 });
+    }
+    const buf = Buffer.from(await resumeFile.arrayBuffer());
+    resumeAttachment = { filename: resumeFile.name, content: buf.toString("base64") };
+  }
+
   const submission = {
     name, email, companyName, phone, lookingFor, message,
+    hasResume: Boolean(resumeAttachment),
     submittedAt: new Date().toISOString(),
   };
 
@@ -73,6 +95,7 @@ export async function POST(req: Request) {
         <tr><td style="padding:4px 12px 4px 0"><b>Email</b></td><td>${esc(email)}</td></tr>
         <tr><td style="padding:4px 12px 4px 0"><b>Phone</b></td><td>${esc(phone) || "—"}</td></tr>
         <tr><td style="padding:4px 12px 4px 0"><b>Looking for</b></td><td>${esc(lookingFor) || "—"}</td></tr>
+        <tr><td style="padding:4px 12px 4px 0"><b>Résumé</b></td><td>${resumeAttachment ? `Attached — ${esc(resumeAttachment.filename)}` : "Not provided"}</td></tr>
       </table>
       <p style="font-family:Arial,sans-serif;font-size:14px;color:#10263f;white-space:pre-wrap;margin-top:16px">${esc(message)}</p>
     `;
@@ -89,6 +112,7 @@ export async function POST(req: Request) {
           reply_to: email,
           subject: `New enquiry from ${name}${companyName ? ` · ${companyName}` : ""}`,
           html,
+          ...(resumeAttachment ? { attachments: [resumeAttachment] } : {}),
         }),
       });
       if (!r.ok) console.error("Resend failed:", await r.text());

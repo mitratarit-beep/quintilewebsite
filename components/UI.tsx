@@ -72,7 +72,7 @@ export function PageHero({
 }
 
 export function CTABanner({
-  heading = "Every search is managed personally.",
+  heading = "Rigorous, high-touch, personalized end-to-end execution on every mandate.",
   subtext = "Let's talk about what you're looking for.",
   cta = "Get in Touch",
   href = "/contact",
