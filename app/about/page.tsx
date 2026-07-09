@@ -22,7 +22,7 @@ export default function About() {
               <div>
                 <p className="eyebrow">Our Story</p>
                 <div className="mt-8 flex flex-col gap-4">
-                  {["Depth over volume", "Personally managed", "National reach", "Personalized experience"].map((t, i) => (
+                  {["Depth over volume", "Principal-led execution", "Coast-to-coast reach", "High-touch partnership"].map((t, i) => (
                     <div key={t} className="flex items-center gap-3">
                       <span className="num">0{i + 1}</span>
                       <span className="font-serif text-[18px]" style={{ color: "var(--color-ink)" }}>{t}</span>

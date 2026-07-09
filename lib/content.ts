@@ -329,6 +329,50 @@ export const jobs = [
     ],
     tags: ["GTM Leader", "Supply Chain Technology", "Enterprise"],
   },
+  {
+    slug: "supply-chain-project-program-manager",
+    title: "Supply Chain Project / Program Manager",
+    type: "Full-Time, Permanent",
+    duration: null as string | null,
+    location: "US — Hybrid · 20–40% travel (project dependent)",
+    level: "Manager / Senior Manager",
+    function: "Supply Chain / Program Management",
+    urgency: null as string | null,
+    confidential: false,
+    summary:
+      "A high-impact Program Manager to lead end-to-end supply chain transformation across planning, operations, and technology workstreams — the critical link between business stakeholders, IT, and delivery partners, driving complex programs from blueprint through go-live and value realization.",
+    requirements: [
+      "7–12 years in supply chain operations, transformation, or SC technology implementation, including 3–5+ years in a formal program/project role owning delivery accountability",
+      "Led at least one full-lifecycle SC technology implementation — SAP IBP, Kinaxis, Blue Yonder, o9, Manhattan, or SAP EWM — from business case through go-live and stabilization",
+      "Background in SC planning transformation (S&OP/IBP, demand/supply planning), ERP implementation (S/4HANA), WMS/TMS, or procurement technology (Coupa, Ariba, Ivalua)",
+      "Strong program governance — steerco reporting, RAID logs, risk management, and stakeholder communication up to VP/CSCO/CIO level",
+      "PMP, PgMP, or Prince2 preferred; APICS CSCP, CPIM, or CLTD is a meaningful differentiator",
+      "Industry background in manufacturing, CPG, pharma, retail, 3PL, or industrial sectors preferred; consulting backgrounds (Big 4, strategy, boutique SC) welcome",
+    ],
+    tags: ["Program Management", "SC Transformation", "S/4HANA", "Kinaxis", "SAP IBP"],
+  },
+  {
+    slug: "enterprise-scheduling-specialist",
+    title: "Enterprise Scheduling Specialist",
+    type: "Full-Time, Permanent",
+    duration: null as string | null,
+    location: "US — Hybrid / National · ~20% travel",
+    level: "Consultant → Sr. Consultant → Manager",
+    function: "SC Planning / Manufacturing Ops",
+    urgency: null as string | null,
+    confidential: true,
+    summary:
+      "A precision role for a hands-on Enterprise Scheduling specialist — Kinaxis Enterprise Scheduling (Maestro™), PlanetTogether, SAP PP/DS, or AspenTech. Finite capacity scheduling from the shop floor up: constraint models, changeover logic, and the gap between a planned schedule and what actually executes. A rare, highly sought-after passive-talent search.",
+    requirements: [
+      "Hands-on configuration and go-live ownership of at least one enterprise scheduling platform — Kinaxis Enterprise Scheduling (Maestro™), PlanetTogether, SAP PP/DS, or AspenTech",
+      "Deep understanding of finite capacity scheduling — constraint models, work centre calendars, changeover logic, and the MPS/MRP-to-scheduling integration",
+      "Experience spans Consultant (3–6 yrs, 1–2 implementations) through Manager (10–15 yrs, led a scheduling practice or team)",
+      "Experience integrating scheduling platforms with ERP back-ends (SAP S/4HANA, ECC, Oracle, D365) — master data, production orders, BOMs, routings",
+      "APICS CPIM or CSCP certification strongly preferred",
+      "Process manufacturing experience (pharma, chemicals, food & beverage) with campaign scheduling or GMP compliance is a plus",
+    ],
+    tags: ["Enterprise Scheduling", "Kinaxis Maestro", "SAP PP/DS", "APS", "Manufacturing"],
+  },
 ];
 
 /* ---------------- CONTACT ---------------- */
