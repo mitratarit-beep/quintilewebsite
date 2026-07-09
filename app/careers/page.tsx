@@ -26,35 +26,36 @@ export default function Careers() {
                 >
                   {/* Left: title + meta */}
                   <div>
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="num">{String(i + 1).padStart(2, "0")}</span>
-                      {job.urgency && (
-                        <span
-                          className="font-mono"
-                          style={{
-                            fontSize: 11,
-                            letterSpacing: "0.1em",
-                            textTransform: "uppercase",
-                            color: "var(--color-gold-deep)",
-                          }}
-                        >
-                          · {job.urgency}
-                        </span>
-                      )}
-                      {job.confidential && (
-                        <span
-                          className="font-mono"
-                          style={{
-                            fontSize: 11,
-                            letterSpacing: "0.1em",
-                            textTransform: "uppercase",
-                            color: "var(--color-flint)",
-                          }}
-                        >
-                          · Confidential Search
-                        </span>
-                      )}
-                    </div>
+                    {(job.urgency || job.confidential) && (
+                      <div className="flex flex-wrap items-center gap-2">
+                        {job.urgency && (
+                          <span
+                            className="font-mono"
+                            style={{
+                              fontSize: 11,
+                              letterSpacing: "0.1em",
+                              textTransform: "uppercase",
+                              color: "var(--color-gold-deep)",
+                            }}
+                          >
+                            {job.urgency}
+                          </span>
+                        )}
+                        {job.confidential && (
+                          <span
+                            className="font-mono"
+                            style={{
+                              fontSize: 11,
+                              letterSpacing: "0.1em",
+                              textTransform: "uppercase",
+                              color: "var(--color-flint)",
+                            }}
+                          >
+                            Confidential Search
+                          </span>
+                        )}
+                      </div>
+                    )}
                     <h2 className="h2 mt-4" style={{ fontSize: "clamp(1.5rem,2.6vw,2rem)" }}>{job.title}</h2>
 
                     <div className="flex flex-wrap gap-2 mt-5">
