@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://quintileadvisory.com";
-  const routes = ["", "/about", "/services", "/industries", "/functions", "/contact"];
+  const routes = ["", "/about", "/services", "/industries", "/functions", "/careers", "/contact"];
   return routes.map((r) => ({
     url: `${base}${r}`,
     lastModified: new Date(),

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { homeProblem, homeWhy, site } from "@/lib/content";
+import { homeProblem, homeWhy, site, jobs } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 import { Constellation } from "@/components/Constellation";
 import { SectionHeader, CTABanner } from "@/components/UI";
@@ -121,6 +121,47 @@ export default function Home() {
                 business and stakeholders — to ensure a seamless, high-impact fit.
               </blockquote>
             </figure>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ---------------- OPEN ROLES ---------------- */}
+      <section className="section">
+        <div className="wrap">
+          <Reveal>
+            <SectionHeader
+              eyebrow="03 · Open Roles"
+              heading="A small number of active searches."
+              descriptor="Most of our work is confidential and never posted. These are the mandates we can share."
+            />
+          </Reveal>
+          <div className="grid md:grid-cols-3 gap-6 mt-16">
+            {jobs.slice(0, 3).map((job, i) => (
+              <Reveal key={job.slug} delay={i * 90}>
+                <Link
+                  href={`/careers`}
+                  className="card card-hover h-full flex flex-col"
+                  style={{ padding: "30px 28px" }}
+                >
+                  <div className="flex flex-wrap gap-2">
+                    <span className="chip">{job.type}</span>
+                    <span className="chip">{job.level}</span>
+                  </div>
+                  <h3 className="h3 mt-5" style={{ fontSize: 19, minHeight: "2.4em" }}>{job.title}</h3>
+                  <p className="mt-2 text-[14px]" style={{ color: "var(--color-flint)" }}>{job.location}</p>
+                  <span className="ulink mt-6 text-[14px] font-medium" style={{ color: "var(--color-navy)" }}>
+                    View role →
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={100}>
+            <div className="mt-10 text-center">
+              <Link href="/careers" className="btn btn-ghost">
+                View All Open Roles
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>

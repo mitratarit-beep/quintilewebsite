@@ -12,7 +12,7 @@ const field =
   "w-full bg-[var(--color-bone)] border border-[var(--color-line-strong)] rounded-[6px] px-4 py-3 text-[15px] text-[var(--color-ink)] placeholder:text-[var(--color-flint)] outline-none transition-colors focus:border-[var(--color-navy)] focus:ring-1 focus:ring-[var(--color-navy)]";
 const label = "block text-[13px] font-medium mb-2 text-[var(--color-slate)]";
 
-export function ContactForm() {
+export function ContactForm({ applyingFor }: { applyingFor?: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string>("");
   const [fileName, setFileName] = useState<string>("");
@@ -43,8 +43,15 @@ export function ContactForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("submitting");
     setError("");
+
+    if (applyingFor && !fileInputRef.current?.files?.length) {
+      setStatus("error");
+      setError("Please attach your résumé to apply.");
+      return;
+    }
+
+    setStatus("submitting");
 
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -90,6 +97,27 @@ export function ContactForm() {
       {/* Honeypot (spam trap) */}
       <input type="text" name="company_website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
 
+      {applyingFor && (
+        <>
+          <input type="hidden" name="roleApplied" value={applyingFor} />
+          <div
+            className="flex items-center gap-2 mb-5"
+            style={{
+              border: "1px solid var(--color-line-strong)",
+              borderRadius: 999,
+              padding: "8px 16px",
+              width: "fit-content",
+              background: "var(--color-cream)",
+            }}
+          >
+            <span style={{ width: 6, height: 6, borderRadius: 99, background: "var(--color-gold)", display: "inline-block" }} />
+            <span className="text-[13px]" style={{ color: "var(--color-slate)" }}>
+              Applying for <strong style={{ color: "var(--color-ink)" }}>{applyingFor}</strong>
+            </span>
+          </div>
+        </>
+      )}
+
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label className={label} htmlFor="name">Full Name *</label>
@@ -109,23 +137,41 @@ export function ContactForm() {
         </div>
       </div>
 
+      {!applyingFor && (
+        <div className="mt-5">
+          <label className={label} htmlFor="lookingFor">What are you looking for?</label>
+          <select id="lookingFor" name="lookingFor" defaultValue="" className={field}>
+            <option value="" disabled>Select an option…</option>
+            {contact.lookingForOptions.map((o) => (
+              <option key={o} value={o}>{o}</option>
+            ))}
+          </select>
+        </div>
+      )}
+
       <div className="mt-5">
-        <label className={label} htmlFor="lookingFor">What are you looking for?</label>
-        <select id="lookingFor" name="lookingFor" defaultValue="" className={field}>
-          <option value="" disabled>Select an option…</option>
-          {contact.lookingForOptions.map((o) => (
-            <option key={o} value={o}>{o}</option>
-          ))}
-        </select>
+        <label className={label} htmlFor="message">
+          {applyingFor ? "Message — tell us about your background *" : "Message — tell us about your need *"}
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows={5}
+          className={field}
+          style={{ resize: "vertical" }}
+          placeholder={
+            applyingFor
+              ? "A few lines about your experience and why this role is a fit."
+              : "A few lines about the role, timing, or challenge you're facing."
+          }
+        />
       </div>
 
       <div className="mt-5">
-        <label className={label} htmlFor="message">Message — tell us about your need *</label>
-        <textarea id="message" name="message" required rows={5} className={field} style={{ resize: "vertical" }} placeholder="A few lines about the role, timing, or challenge you're facing." />
-      </div>
-
-      <div className="mt-5">
-        <label className={label} htmlFor="resume">Share your résumé (optional)</label>
+        <label className={label} htmlFor="resume">
+          {applyingFor ? "Attach your résumé *" : "Share your résumé (optional)"}
+        </label>
         <div
           className="flex items-center justify-between gap-3 cursor-pointer"
           style={{

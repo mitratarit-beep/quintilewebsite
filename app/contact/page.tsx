@@ -9,7 +9,13 @@ export const metadata: Metadata = {
     "Start a search or talk through a hiring challenge. Chicago-based, recruiting nationally. Email quintileadvisory@quintileadvisory.com or call +1 630 864 0591.",
 };
 
-export default function Contact() {
+export default async function Contact({
+  searchParams,
+}: {
+  searchParams: Promise<{ role?: string }>;
+}) {
+  const { role } = await searchParams;
+
   const details = [
     { label: "Email", value: site.email, href: `mailto:${site.email}` },
     { label: "Phone", value: site.phone, href: `tel:${site.phoneHref}` },
@@ -23,9 +29,15 @@ export default function Contact() {
         <div className="absolute inset-0 grid-lines opacity-70 pointer-events-none" aria-hidden />
         <div className="wrap relative">
           <Reveal>
-            <p className="eyebrow">Contact</p>
-            <h1 className="display mt-5" style={{ maxWidth: "18ch" }}>{contact.headline}</h1>
-            <p className="lede mt-6 max-w-2xl">{contact.subtext}</p>
+            <p className="eyebrow">{role ? "Job Application" : "Contact"}</p>
+            <h1 className="display mt-5" style={{ maxWidth: "18ch" }}>
+              {role ? `Apply for ${role}.` : contact.headline}
+            </h1>
+            <p className="lede mt-6 max-w-2xl">
+              {role
+                ? "Send your résumé and a short note — every application reaches the founder directly."
+                : contact.subtext}
+            </p>
           </Reveal>
         </div>
       </section>
@@ -77,7 +89,7 @@ export default function Contact() {
 
             {/* Form */}
             <Reveal delay={100}>
-              <ContactForm />
+              <ContactForm applyingFor={role} />
             </Reveal>
           </div>
         </div>

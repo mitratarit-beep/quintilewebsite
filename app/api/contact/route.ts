@@ -40,6 +40,7 @@ export async function POST(req: Request) {
   const companyName = get("companyName");
   const phone = get("phone");
   const lookingFor = get("lookingFor");
+  const roleApplied = get("roleApplied");
 
   if (!name || !email || !message) {
     return NextResponse.json({ error: "Please complete the required fields." }, { status: 400 });
@@ -62,7 +63,7 @@ export async function POST(req: Request) {
   }
 
   const submission = {
-    name, email, companyName, phone, lookingFor, message,
+    name, email, companyName, phone, lookingFor, roleApplied, message,
     hasResume: Boolean(resumeAttachment),
     submittedAt: new Date().toISOString(),
   };
@@ -88,13 +89,15 @@ export async function POST(req: Request) {
   // --- Optional: email notification via Resend (if configured) ---
   if (process.env.RESEND_API_KEY) {
     const html = `
-      <h2 style="font-family:Georgia,serif;color:#042c53">New enquiry — Quintile Advisory</h2>
+      <h2 style="font-family:Georgia,serif;color:#042c53">${roleApplied ? `New job application — ${esc(roleApplied)}` : "New enquiry — Quintile Advisory"}</h2>
       <table style="font-family:Arial,sans-serif;font-size:14px;color:#10263f">
         <tr><td style="padding:4px 12px 4px 0"><b>Name</b></td><td>${esc(name)}</td></tr>
         <tr><td style="padding:4px 12px 4px 0"><b>Company</b></td><td>${esc(companyName) || "—"}</td></tr>
         <tr><td style="padding:4px 12px 4px 0"><b>Email</b></td><td>${esc(email)}</td></tr>
         <tr><td style="padding:4px 12px 4px 0"><b>Phone</b></td><td>${esc(phone) || "—"}</td></tr>
-        <tr><td style="padding:4px 12px 4px 0"><b>Looking for</b></td><td>${esc(lookingFor) || "—"}</td></tr>
+        ${roleApplied
+          ? `<tr><td style="padding:4px 12px 4px 0"><b>Applying for</b></td><td>${esc(roleApplied)}</td></tr>`
+          : `<tr><td style="padding:4px 12px 4px 0"><b>Looking for</b></td><td>${esc(lookingFor) || "—"}</td></tr>`}
         <tr><td style="padding:4px 12px 4px 0"><b>Résumé</b></td><td>${resumeAttachment ? `Attached — ${esc(resumeAttachment.filename)}` : "Not provided"}</td></tr>
       </table>
       <p style="font-family:Arial,sans-serif;font-size:14px;color:#10263f;white-space:pre-wrap;margin-top:16px">${esc(message)}</p>
@@ -110,7 +113,9 @@ export async function POST(req: Request) {
           from: FROM_EMAIL,
           to: [TO_EMAIL],
           reply_to: email,
-          subject: `New enquiry from ${name}${companyName ? ` · ${companyName}` : ""}`,
+          subject: roleApplied
+            ? `Job application: ${roleApplied} — from ${name}`
+            : `New enquiry from ${name}${companyName ? ` · ${companyName}` : ""}`,
           html,
           ...(resumeAttachment ? { attachments: [resumeAttachment] } : {}),
         }),

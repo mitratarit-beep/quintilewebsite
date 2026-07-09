@@ -23,6 +23,7 @@ export const nav = [
   { label: "Services", href: "/services" },
   { label: "Industries", href: "/industries" },
   { label: "Functions", href: "/functions" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -256,6 +257,79 @@ export const functions = {
     },
   ],
 };
+
+/* ---------------- CAREERS ---------------- */
+export const careers = {
+  headline: "Open roles.",
+  subtext:
+    "A small number of active searches, updated as they move. Reach out with your résumé, or a referral — every conversation is handled personally.",
+};
+
+export const jobs = [
+  {
+    slug: "senior-qa-automation-engineer",
+    title: "Senior QA Automation Engineer",
+    type: "Contract",
+    duration: "6 months · potential to convert",
+    location: "Remote (Chicago on conversion to full-time)",
+    level: "Senior",
+    function: "Technology & QA",
+    urgency: null as string | null,
+    confidential: false,
+    summary:
+      "A heavy-hitting Senior QA Automation Engineer to lead API testing, modern automation frameworks, and AI/ML test integration for a premier client — someone who thrives at the intersection of robust automation architecture and cutting-edge tool stacks.",
+    requirements: [
+      "10+ years in QA / 7+ years in Test Automation, with proven senior leadership experience",
+      "Deep expertise in Playwright and TypeScript (or JavaScript, Java, Python, C#)",
+      "Strong AWS cloud-native architecture experience, including complex API migrations (e.g., MuleSoft to AWS)",
+      "Hands-on integration of AI/ML tools into testing frameworks — GitHub Copilot, MCP Agents, LLMs",
+      "CI/CD pipelines via Git and Jenkins, GitLab CI, or Azure DevOps",
+    ],
+    tags: ["QA Automation", "Playwright", "TypeScript", "AWS", "AI in Testing"],
+  },
+  {
+    slug: "databricks-specialist",
+    title: "Databricks Specialist",
+    type: "Contract",
+    duration: null as string | null,
+    location: "Remote · Azure Databricks, hybrid onshore/offshore delivery",
+    level: "Expert / Specialist",
+    function: "Data & AI",
+    urgency: "Urgent — start ASAP",
+    confidential: false,
+    summary:
+      "An expert Databricks Engineer or consulting partner for an immediate-start data privacy initiative — anonymizing and sanitizing test bank data, and standing up an isolated, synthetic-data test environment using Databricks AI.",
+    requirements: [
+      "PII anonymization — completely scrub and sanitize test bank data",
+      "Build an isolated test environment using synthetic / scrubbed data",
+      "Leverage Databricks AI for automated sanitization",
+      "Operate in Azure Databricks with awareness of an upcoming AWS migration",
+      "Proven track record with Databricks and data masking / privacy use cases",
+      "Experience working in secure, access-restricted environments",
+      "Ability to support a hybrid delivery model (onshore/offshore) preferred",
+    ],
+    tags: ["Databricks", "Data Privacy", "PII", "Azure", "AI"],
+  },
+  {
+    slug: "gtm-leader-supply-chain-technology",
+    title: "GTM Leader — Supply Chain Technology",
+    type: "Full-Time, Permanent",
+    duration: null as string | null,
+    location: "US — Remote / Hybrid · 25–40% travel",
+    level: "Director / Senior Director",
+    function: "Consulting & Advisory",
+    urgency: null as string | null,
+    confidential: true,
+    summary:
+      "For someone who has done it before — built a pipeline from scratch, sold complex multi-year engagements to CSCOs and CIOs, and navigated the intersection of supply chain technology and consulting.",
+    requirements: [
+      "Track record selling Anaplan, Kinaxis, o9, Blue Yonder, Coupa, Manhattan, or similar platforms",
+      "Or, equivalent experience from a consulting practice that sells and delivers these platforms",
+      "Industries: Manufacturing, CPG, Pharma, Medtech",
+    ],
+    tags: ["GTM Leader", "Supply Chain Technology", "Enterprise"],
+  },
+];
 
 /* ---------------- CONTACT ---------------- */
 export const contact = {
