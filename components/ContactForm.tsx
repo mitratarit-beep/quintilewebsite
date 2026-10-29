@@ -201,7 +201,7 @@ export function ContactForm({ applyingFor }: { applyingFor?: string }) {
       </div>
 
       {status === "error" && (
-        <p className="mt-4 text-[14px]" style={{ color: "#b4402f" }}>
+        <p className="mt-4 text-[14px]" style={{ color: "#9c4a30" }}>
           {error} You can also email us at{" "}
           <a href="mailto:quintileadvisory@quintileadvisory.com" className="ulink underline">quintileadvisory@quintileadvisory.com</a>.
         </p>
