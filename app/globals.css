@@ -9,31 +9,31 @@
 
 @theme {
   /* Surfaces — warm cream stack (canvas recedes, cream/bone sit above) */
-  --color-paper: #f0ebde;      /* page canvas — warm cream field */
-  --color-cream: #f6f1e6;      /* primary surface — section bands, cards */
-  --color-bone: #fbf7ee;       /* elevated surface — cards above cream */
-  --color-sand: #e8e0ce;       /* warm wash / tints */
+  --color-paper: #f2efe7;      /* page canvas — warm cream field */
+  --color-cream: #f7f3ea;      /* primary surface — section bands, cards */
+  --color-bone: #fbf9f4;       /* elevated surface — cards above cream */
+  --color-sand: #e7e1d3;       /* warm wash / tints */
 
-  /* Deep royal blue — the expressive lead (headlines, buttons, mark, links).
+  /* Deep pine (Convex accent) — the expressive lead (headlines, buttons, mark, links).
      Token names kept as *navy* so components re-skin without edits. */
-  --color-navy: #1e3f86;       /* deep royal blue — lead */
-  --color-navy-deep: #16305f;  /* dark sections / footer bg, hover */
-  --color-navy-night: #101f3d; /* deepest */
-  --color-ink: #20242e;        /* body / default text — cool near-black, tinted */
-  --color-graphite: #4c515c;   /* secondary body text — never pure gray */
-  --color-slate: #3a3f4a;      /* tertiary labels */
-  --color-flint: #8a8880;      /* muted helper text, dashed dividers */
+  --color-navy: #0f5049;       /* Convex pine — lead */
+  --color-navy-deep: #0e3f38;  /* dark sections / footer bg, hover */
+  --color-navy-night: #0a2c28; /* deepest */
+  --color-ink: #15161a;        /* body / default text — cool near-black, tinted */
+  --color-graphite: #3d3f43;   /* secondary body text — never pure gray */
+  --color-slate: #4a4d52;      /* tertiary labels */
+  --color-flint: #7b776e;      /* muted helper text, dashed dividers */
 
-  /* Accent — coral (replaces gold), rationed to single touches.
+  /* Accent — Convex gold, rationed to single touches.
      Token names kept as *gold* so components re-skin without edits. */
-  --color-gold: #e8613f;       /* accent — coral spark */
-  --color-gold-deep: #c1462a;  /* accent text on light / hover */
-  --color-gold-soft: #f2bfab;  /* soft wash */
+  --color-gold: #9a7530;       /* Convex gold — accent spark */
+  --color-gold-deep: #7e5f26;  /* accent text on light / hover */
+  --color-gold-soft: #e4d4ad;  /* soft wash */
 
   /* Lines — dashed hairline = signature separator (ink @ low opacity, tinted) */
-  --color-line: #20242e1c;     /* ink @ ~11% */
-  --color-line-soft: #20242e12;
-  --color-line-strong: #20242e2e;
+  --color-line: #15161a1c;     /* ink @ ~11% */
+  --color-line-soft: #15161a12;
+  --color-line-strong: #15161a2e;
 
   /* Fonts (wired via next/font variables in layout) */
   --font-serif: var(--font-fraunces), "Noto Serif", Georgia, serif;
@@ -224,10 +224,10 @@ body {
 /* Dark section — solid deep royal blue, restrained (no gradient wash) */
 .dark-section {
   background: var(--color-navy-deep);
-  color: #cdd4e0;
+  color: #c4cdc8;
 }
 .dark-section .serif, .dark-section h1, .dark-section h2, .dark-section h3 { color: #f3f1ea; }
-.dark-section .lede, .dark-section p { color: #c3cbd9; }
+.dark-section .lede, .dark-section p { color: #bcc6c1; }
 
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
